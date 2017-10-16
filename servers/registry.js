@@ -21,7 +21,7 @@ var proxyToNpm = require('../middleware/proxy_to_npm');
 var maxrequests = require('koa-maxrequests');
 
 app.use(function* block(next) {
-  this.protocol = 'http'
+  this.protocol = 'http';
   yield next;
 })
 

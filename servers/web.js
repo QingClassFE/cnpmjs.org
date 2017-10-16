@@ -31,7 +31,7 @@ jsonp(app);
 var rootdir = path.dirname(__dirname);
 
 app.use(function* block(next) {
-  this.protocol = 'http'
+  this.protocol = 'http';
   yield next;
 })
 
