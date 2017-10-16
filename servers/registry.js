@@ -20,11 +20,6 @@ var cors = require('kcors');
 var proxyToNpm = require('../middleware/proxy_to_npm');
 var maxrequests = require('koa-maxrequests');
 
-app.use(function* block(next) {
-  this.protocol = 'http';
-  yield next;
-})
-
 app.use(maxrequests());
 app.use(block());
 middlewares.jsonp(app);
