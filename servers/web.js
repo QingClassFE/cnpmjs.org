@@ -30,6 +30,11 @@ jsonp(app);
 
 var rootdir = path.dirname(__dirname);
 
+app.use(function* block(next) {
+  this.protocol = 'http';
+  yield next;
+})
+
 app.use(maxrequests());
 app.use(block());
 app.use(rt({ headerName: 'X-ReadTime' }));
